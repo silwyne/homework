@@ -18,7 +18,9 @@
 
 ## Assignment 2: IoT Protocol Research
 
-**Link**: [HTTP Packet Analysis with Wireshark](./docs/iot-protocols.md)
+**Link**: [IoT Protocol Research](./docs/iot-protocols.md)
+
+![iot protocols](./docs/pics/iot-protocols.png)
 
 **Objective**: Research and document three fundamental protocols used in Internet of Things communications.
 
@@ -32,7 +34,7 @@
 
 ## Assignment 3: DNS Server Deployment
 
-**Link**: [HTTP Packet Analysis with Wireshark](./docs/dns-server-setup/dns-server-setup.md)
+**Link**: [DNS Server Deployment](./docs/dns-server-setup/dns-server-setup.md)
 
 **Objective**: Set up a functional DNS server using containerization technology.
 

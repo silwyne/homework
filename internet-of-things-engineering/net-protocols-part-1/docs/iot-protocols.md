@@ -7,6 +7,8 @@ This document provides a technical overview of three fundamental protocols used 
 
 ## 1. MQTT (Message Queuing Telemetry Transport)
 
+![MQTT](./pics/mqtt-gif.gif)
+
 ### Overview
 MQTT is a lightweight publish/subscribe messaging protocol designed for low-power sensors and devices operating in low-bandwidth, high-latency, or unreliable network environments . It was originally developed by IBM in 1999 for oil and gas pipeline monitoring and became an OASIS standard in 2013 .
 
@@ -64,6 +66,8 @@ Higher QoS levels provide greater reliability but increase latency and bandwidth
 
 
 ## 2. CoAP (Constrained Application Protocol)
+
+![CoAp](./pics/MQTT-vs-CoAp.png)
 
 ### Overview
 CoAP is a specialized web transfer protocol designed for constrained nodes (8-bit microcontrollers with limited ROM/RAM) and constrained networks (low-power, lossy networks with high error rates and low throughput) . Standardized by IETF in RFC 7252, it enables machine-to-machine applications like smart energy and building automation .
@@ -147,6 +151,8 @@ CoAP security relies on DTLS (Datagram Transport Layer Security) with four opera
 
 
 ## 3. LwM2M (Lightweight Machine-to-Machine)
+
+![LwM2M](./pics/LWM2M.png)
 
 ### Overview
 Lightweight M2M is a device management and service enablement protocol developed by the Open Mobile Alliance (OMA) specifically for constrained M2M devices . It operates over UDP and SMS bearers, addressing the service and management needs of resource-constrained devices .
