@@ -1,0 +1,16 @@
+services:
+  dns-server:
+    image: internetsystemsconsortium/bind9:9.18
+    container_name: dns-server
+    restart: unless-stopped
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+      # RNDC port for management, bound only to localhost for security
+      - "127.0.0.1:953:953/tcp"
+    volumes:
+      # Mount the configuration directory
+      - ./config:/etc/bind
+      # Mount persistent volumes for cache and logs (not here for local test)
+      # - ./cache:/var/cache/bind
+      # - ./logs:/var/log
