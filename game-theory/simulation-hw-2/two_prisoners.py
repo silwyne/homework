@@ -2,15 +2,17 @@
 import random
 
 # Available actions
-H = "Hawk"
-D = "Dove"
+C = "Cooperate"
+D = "Defect"
+
+ACTIONS = [C, D]
 
 # Payoff matrix: (Player 1, Player 2)
 PAYOFFS = {
-    (D, D): (2, 2),
-    (D, H): (0, 4),
-    (H, D): (4, 0),
-    (H, H): (-1, -1)
+    (C, C): (3, 3),
+    (C, D): (0, 5),
+    (D, C): (5, 0),
+    (D, D): (1, 1)
 }
 
 
@@ -29,7 +31,7 @@ class Player:
         self.history = []
 
 
-class HawkDoveGame:
+class PrisonersDilemma:
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
@@ -69,72 +71,53 @@ class HawkDoveGame:
 
 # Strategies
 
-def always_hawk(opponent_history):
-    return H
+def always_cooperate(opponent_history):
+    return C
 
 
-def always_dove(opponent_history):
+def always_defect(opponent_history):
     return D
 
 
 def random_strategy(opponent_history):
-    return random.choice([H, D])
+    return random.choice([C, D])
 
 
 def tit_for_tat(opponent_history):
     if not opponent_history:
-        return D
+        return C
+    return opponent_history[-1]
 
-    if opponent_history[-1] == H:
-        return H
-
-    return D
-
-
-CHOOSE_STRATEGY_MESSAGE = (
-    "choose strategy {1-4}: "
-    "always_hawk(1), always_dove(2), "
-    "random_strategy(3), tit_for_tat(4)"
-)
+CHOOSE_STRATEGY_MESSAGE = "choose strategy {1-4}: always_cooperate(1), always_defect(2), random_strategy(3), tit_for_tat(4)"
 
 CHOOSE_STRATEGY_MATRIX = {
-    '1': always_hawk,
-    '2': always_dove,
+    '1': always_cooperate,
+    '2': always_defect,
     '3': random_strategy,
     '4': tit_for_tat
 }
 
-
 if __name__ == "__main__":
 
     print("=" * 50)
-    print("       HAWK-DOVE | GAME SIMULATION")
+    print("       PRISONER'S DILEMMA | GAME SIMULATION")
     print("       Game Theory - 2 Player Simulation")
     print("=" * 50)
 
     while True:
         try:
             input("Press Enter to continue...")
-
         except KeyboardInterrupt:
             print("\n\n[!] Simulation interrupted by user.")
             print("[*] Shutting down gracefully...")
             break
-
+            
         print(CHOOSE_STRATEGY_MESSAGE)
-
-        player_1_strategy = CHOOSE_STRATEGY_MATRIX[
-            input("player 1 strategy: ")
-        ]
-
-        player_2_strategy = CHOOSE_STRATEGY_MATRIX[
-            input("player 2 strategy: ")
-        ]
-
+        player_1_strategy = CHOOSE_STRATEGY_MATRIX[input("player 1 strategy: ")]
+        player_2_strategy = CHOOSE_STRATEGY_MATRIX[input("player 2 strategy: ")]
         print()
-
+        
         game_rounds = int(input("game rounds (default=1): "))
-
         if game_rounds <= 0:
             game_rounds = 1
 
@@ -143,5 +126,5 @@ if __name__ == "__main__":
         player2 = Player("Player 2", player_2_strategy)
 
         # Create and run the game
-        game = HawkDoveGame(player1, player2)
+        game = PrisonersDilemma(player1, player2)
         game.play(rounds=game_rounds)
