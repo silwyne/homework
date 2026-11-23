@@ -12,6 +12,7 @@ from games import (
     baz_kabootar,
     two_prisoners,
     coordination_game,
+    battle_of_sexes,
     advertising_game
 )
 
@@ -21,7 +22,8 @@ GAMES = {
     "1": ("Prisoner's Dilemma", two_prisoners),
     "2": ("Hawk-Dove Game", baz_kabootar),
     "3": ("Coordination Game", coordination_game),
-    "4": ("Advertising Game", advertising_game)
+    "4": ("Advertising Game", advertising_game),
+    "5": ("Battle Of Sexes", battle_of_sexes)
 }
 
 
