@@ -1,6 +1,5 @@
 # 📚 Homework
 
-I'm a 4th year Computer Engineering student at Sadra University.
 This repo contains my homework.
 
 ## Why this exists
@@ -23,7 +22,6 @@ If you're from my university and found this:
 
 ## Stats
 - Hours wasted: ∞
-- Coffee consumed: too much
 - Bugs fixed: some
 - Bugs remaining: yes
 
